@@ -124,7 +124,7 @@ func (c *Config) String() string {
 	return string(b)
 }
 
-func (c *Config) PreLoad() error {
+func (c *Config) PreLoad() {
 	if addr := c.Storage.Cache.Redis.Addr; addr != "" {
 		username := c.Storage.Cache.Redis.Username
 		password := c.Storage.Cache.Redis.Password
@@ -141,7 +141,6 @@ func (c *Config) PreLoad() error {
 			c.Middleware.Auth.Store.Redis.Password = password
 		}
 	}
-	return nil
 }
 
 func (c *Config) Print() {
